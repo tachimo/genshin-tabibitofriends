@@ -1,0 +1,224 @@
+@import 'top';
+
+body {
+  background-color: ivory;
+  padding: 80px;
+}
+
+header#header.header-top.shadow-sm {
+  width: 100%;
+}
+
+.link-button-home {
+  text-align: left;
+  position: absolute;
+  padding: 15px 15px;
+  flex-direction: row;
+}
+
+.link-button-help {
+  text-align: right;
+  padding: 10px;
+}
+
+.header-container{
+  width: 90%;
+  position: fixed;
+  padding: 0px;
+  height: 70px;
+  top: 0;
+  z-index: 1000;
+}
+
+.footer-container {
+  position: center;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  color: ivory;
+}
+
+.footer-button-container {
+  padding: 10px;  
+}
+
+.link-button {
+  display: inline-block;
+  margin: 5px;
+}
+
+.link-button-user {
+  display: inline-block;
+}
+
+.link-button-newuser {
+  display: inline-block;
+  margin: 0px 0px 0px 5px;
+}
+
+.logout-button {
+  display: inline-block;
+}
+
+/* home-topのcss */
+.new-player {
+  margin: 8px;
+  text-align: center;
+  text-shadow: black;
+}
+
+.new-players {
+  margin: 10px;
+  flex-direction: row;
+}
+
+.top-center-text {
+  text-align: center;
+  color: blue;
+}
+
+.how-wrapper {
+  margin: 30px;
+  text-align: center;
+}
+
+.button-newuser {
+  margin: 30px;
+}
+
+.new-loginmenber {
+  margin: 30px;
+  text-align: center;
+}
+
+/* how-pageのcss */
+.how-image {
+  margin: 30px;
+  border: solid;
+  border-color: #bbb;
+}
+
+/* new-usersessionのcss */
+.login-button {
+  margin: 30px 0px;
+}
+
+/* new-userのcss */
+.newuser-button {
+  margin: 30px 0px;
+}
+
+/* user-indexのcss */
+.user-index-title {
+  text-align: center;
+  margin: 30px;
+}
+
+ul {
+  margin: 10px 10px;
+  display: flex;
+  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.user-board {
+  margin: 10px 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.username-button {
+  border-radius: 16px;
+}
+
+/* user-showのcss */
+
+.mypage-image {
+  background-image: url("2021021911253557998.png");
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  width: 100%;
+  height: 10vh;
+  margin: 40px 0px;
+  
+  .center-text {
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    margin: 25px 0px;
+    transform: translate(-50%, -50%);
+  }
+}
+
+tr {
+  background-color: gainsboro;
+}
+
+th {
+  border:1px solid #ccc;
+  padding:10px;
+  background:#EFEFEF;
+}
+
+td {
+  border:1px solid #ccc;
+  padding:10px;
+}
+
+.mypage-edit {
+  text-align: center;
+  margin: 30px;
+}
+
+.user-editbutton {
+  margin: 30px 0px;
+}
+
+/* boardのcss */
+.board-index {
+  text-align: center;
+  margin: 30px;
+}
+
+.board-list {
+  text-align: center;
+  margin: 10px;
+}
+
+/* board-indexのcss */
+ul.boards {
+  margin: 10px 10px;
+  display: flex;
+  flex-direction: row;
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  gap: 24px 6%;
+}
+
+.friend-board {
+  margin: 10px 10px;
+  display: flex;
+  flex-direction: row;
+  column-count: 4;
+}
+
+.board-show {
+  text-align: center;
+  margin: 30px;
+}
+
+.board-newbutton {
+  margin: 30px 0px;
+}
+
+.board-editbutton {
+  margin: 10px;
+  display: inline-block;
+}
+
+.board-deletebutton {
+  display: inline-block;
+}

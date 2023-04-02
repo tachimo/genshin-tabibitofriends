@@ -1,0 +1,13 @@
+p#notice
+  = notice
+p
+  strong
+    | Title:
+  = @board.title
+p
+  strong
+    | Body:
+  = @board.body
+= link_to 'Edit', edit_board_path(@board)
+|  | 
+= link_to 'Back', boards_path
