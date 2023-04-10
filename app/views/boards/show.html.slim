@@ -1,13 +1,33 @@
-p#notice
-  = notice
-p
-  strong
-    | Title:
-  = @board.title
-p
-  strong
-    | Body:
-  = @board.body
-= link_to 'Edit', edit_board_path(@board)
-|  | 
-= link_to 'Back', boards_path
+h1 募集の詳細
+
+.nav.justify-content-end
+  = link_to '一覧', boards_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= '募集番号'
+      Board.human_attribute_name(:id)
+      td= @board.id
+    tr
+      th= '募集タイトル'
+      Board.human_attribute_name(:title)
+      td= @board.title
+    tr
+      th= '募集内容'
+      Board.human_attribute_name(:body)
+      td= simple_format(h(@board.body), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th= '登録日'
+      Board.human_attribute_name(:created_at)
+      td= @board.created_at.strftime("%Y-%m-%d %H:%M")
+    tr
+      th= '更新日'
+      Board.human_attribute_name(:update_at)
+      td= @board.updated_at.strftime("%Y-%m-%d %H:%M")
+  
+= link_to '編集', edit_board_path, class: 'btn btn-primary mr-3'
+/ = button_to '削除', @board, method::delete, data: { confirm: "募集「#{@board.title}」を削除します。よろしいですか？"}, class: "btn btn-danger"
+
+/# == render 'comments/form', { board: @board, comment: @comment }
+
+/# == render 'comments/comments', { comments: @comments }

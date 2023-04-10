@@ -3,11 +3,15 @@ class BoardsController < ApplicationController
 
   # GET /boards or /boards.json
   def index
-    @boards = Board.all
+    @search = Board.ransack(params[:q])
+    @boards = @search.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page]).per(20)
   end
 
   # GET /boards/1 or /boards/1.json
   def show
+    @board = Board.find(params[:id])
+    # @comment = Comment.new
+    # @comments = @board.comments.includes(:user) #, order(created_at: :desc)
   end
 
   # GET /boards/new
@@ -17,15 +21,16 @@ class BoardsController < ApplicationController
 
   # GET /boards/1/edit
   def edit
+    @board = current_user.boards.find(params[:id])
   end
 
   # POST /boards or /boards.json
   def create
-    @board = Board.new(board_params)
+    @board = current_user.boards.new(board_params)
 
     respond_to do |format|
       if @board.save
-        format.html { redirect_to board_url(@board), notice: "Board was successfully created." }
+        format.html { redirect_to board_url(@board), notice: "募集「#{@board.title}」を作成しました。" }
         format.json { render :show, status: :created, location: @board }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,7 +57,7 @@ class BoardsController < ApplicationController
     @board.destroy
 
     respond_to do |format|
-      format.html { redirect_to boards_url, notice: "Board was successfully destroyed." }
+      format.html { redirect_to boards_url, notice: "募集を削除しました！！" }
       format.json { head :no_content }
     end
   end
@@ -65,6 +70,6 @@ class BoardsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def board_params
-      params.require(:board).permit(:title, :body)
+      params.require(:board).permit(:title, :body, :user_id)
     end
 end
