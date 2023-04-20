@@ -10,8 +10,8 @@ class BoardsController < ApplicationController
   # GET /boards/1 or /boards/1.json
   def show
     @board = Board.find(params[:id])
-    # @comment = Comment.new
-    # @comments = @board.comments.includes(:user) #, order(created_at: :desc)
+    @comment = Comment.new
+    @comments = @board.comments.includes(:user) #, order(created_at: :desc)
   end
 
   # GET /boards/new
