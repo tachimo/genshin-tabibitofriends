@@ -9,34 +9,52 @@
   table.table.table
     tbody
       tr
-        th= "名前"
-        td= @user.name
+        th
+          = "名前"
+        td
+          = @user.name
       tr
-        th= "ユーザーID"
-        td= @user.player_uid
+        th
+          = "ユーザーID"
+        td
+            p#js-copyid = @user.player_uid 
+            = button_tag 'UIDのコピー', type: 'button', id: 'js-copybtn'
+            <p id="js-copyalert" class="copy_alert">コピーできました！</p>
       tr
-        th= "世界ランク"
-        td= @user.world_rank
+        th
+          = "世界ランク"
+        td
+          = @user.world_rank
       tr
-        th= "プレイ内容"
-        td= @user.introduction
+        th
+          = "プレイ内容"
+        td
+          = @user.introduction
+
   = link_to 'マイページ更新へ', edit_user_path, class: 'btn btn-primary'
 - else
-  h1.font-weight-normal.mt-5.mb-5
-    = @user.name
-    | さんのページ
-  .mypagecontainer
-    p.font-weight-normal.mt-5.mb-5
-      = @user.name
-  .mypagecontainer
-    p.font-weight-normal.mt-5.mb-5
-      = @user.player_uid
-  / .mypagecontainer
-    / p.font-weight-normal.mt-5.mb-5
-      / = @user.player
-  .mypagecontainer
-    p.font-weight-normal.mt-5.mb-5
-      = @user.world_rank
-  .mypagecontainer
-    p.font-weight-normal.mt-5.mb-5
-      = @user.introduction
+  current_user
+  table.table.table
+    tbody
+      tr
+        th
+          = "名前"
+        td
+          = @user.name
+      tr
+        th
+          = "ユーザーID"
+        td
+            p#js-copyid = @user.player_uid 
+            = button_tag 'UIDのコピー', type: 'button', id: 'js-copybtn'
+            <p id="js-copyalert" class="copy_alert">コピーできました！</p>
+      tr
+        th
+          = "世界ランク"
+        td
+          = @user.world_rank
+      tr
+        th
+          = "プレイ内容"
+        td
+          = @user.introduction

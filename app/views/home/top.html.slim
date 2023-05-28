@@ -26,7 +26,7 @@
     | 新規登録旅人フレンド
 .new-board
   ul.users
-    /# - @users.each do |user|
+    - @users.each do |user|
       .card style=("width: 18rem;")
         .card-body
           .column.flex-direction:row
@@ -37,3 +37,11 @@
             br
               = user.world_rank
             = link_to "ユーザーページへ", user, class: "btn btn-primary"
+
+<p id="test">jQueryでーーーーーす</p>
+<p class="hoge">色を変えまーーーーーーーす</p>
+
+<textarea id="js-copytext">コピーするテキスト</textarea>
+<button type="button" id="js-copybtn">Copy</button>
+
+<p id="js-copyalert" class="copy_alert">コピーできました！</p>
