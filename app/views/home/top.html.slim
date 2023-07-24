@@ -12,7 +12,7 @@
 
 .new-loginmenber
   - if logged_in?
-    / # h2
+    h2
       | ログイン中
   - else
     h2
@@ -31,17 +31,9 @@
         .card-body
           .column.flex-direction:row
             /# = gravatar_for user, size: 50
-            = link_to user.name, user
             br
               = user.name
             br
               = user.world_rank
-            = link_to "ユーザーページへ", user, class: "btn btn-primary"
-
-<p id="test">jQueryでーーーーーす</p>
-<p class="hoge">色を変えまーーーーーーーす</p>
-
-<textarea id="js-copytext">コピーするテキスト</textarea>
-<button type="button" id="js-copybtn">Copy</button>
-
-<p id="js-copyalert" class="copy_alert">コピーできました！</p>
+            = link_to user, class: "btn btn-outline-primary rounded-pill"
+              = icon 'fa', 'user', 'ユーザーページ'

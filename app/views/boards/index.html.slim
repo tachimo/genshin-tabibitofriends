@@ -6,25 +6,28 @@
   .input-group.mb-3
     = f.search_field :title_or_body_cont, class: "form-control", placeholder: "検索ワード"
   .input-group-append
-    = f.submit "検索", class: "btn btn-primary"
+    = f.submit "検索", class: "btn btn-outline-primary"
 
 .board-list
   h2
     | 募集一覧
 
-= link_to '新規登録', new_board_path, class: 'btn btn-primary'
+= link_to '新規登録', new_board_path, class: 'btn btn-outline-primary'
 
 = paginate @boards, theme: 'bootstrap-5'
 
 .mb-3
 ul.boards
+  
   - @boards.each do |board|
     .friend-board
       .card style=("width: 18rem;")
-        .card-body
+        .card-body.shadow
           .card-columns
             flex-direction:row
               tr
+                .user-name
+                    = board.user.name
                 .board-title
                   td = board.title 
                 .board-body
@@ -32,13 +35,13 @@ ul.boards
                 .board-created
                   td = board.created_at.strftime("%Y-%m-%d %H:%M")
                 td
-                  = link_to '詳細', board_path(board), class: 'btn btn-primary mr-3'
+                  = link_to '詳細', board_path(board), class: 'btn btn-outline-info'
                 td
                   .board-editbutton
                     - if current_user.own?(board)
-                      = link_to '編集', edit_board_path(board), class: 'btn btn-primary mr-3'
+                      = link_to '編集', edit_board_path(board), class: 'btn btn-outline-info'
                 td
                   .board-deletebutton
                     - if current_user.own?(board)
-                      = button_to '削除', board, method: :delete, data: { confirm: "募集を削除します。よろしいですか？"}, class: "btn btn-danger"
+                      = button_to '削除', board, method: :delete, data: { confirm: "募集を削除します。よろしいですか？"}, class: "btn btn-outline-danger"
 = paginate @boards, theme: 'bootstrap-5'

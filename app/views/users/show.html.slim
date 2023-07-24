@@ -1,12 +1,19 @@
-.my-page
-  .mypage-image
-    - image_tag '2021021911253557998.png'
-    h1.font-weight-normal.mt-5.mb-5
-      .center-text
-        h1
-          | マイページ
 - if logged_in? && @user == current_user
-  table.table.table
+  .my-page
+    .mypage-image
+      h1.font-weight-normal.mt-5.mb-5
+        .center-text
+          h1
+            | マイページ
+- else
+  .my-page
+    .mypage-image
+      h1.font-weight-normal.mt-5.mb-5
+          .center-text
+            h1
+              | #{ @user.name }さんのページ
+- if logged_in? && @user == current_user
+  table.table.table.shadow-sm
     tbody
       tr
         th
@@ -19,7 +26,7 @@
         td
             p#js-copyid = @user.player_uid 
             = button_tag 'UIDのコピー', type: 'button', id: 'js-copybtn'
-            <p id="js-copyalert" class="copy_alert">コピーできました！</p>
+            /# p#js-copyalert. copy_alert, "コピーできました！"
       tr
         th
           = "世界ランク"
@@ -31,7 +38,8 @@
         td
           = @user.introduction
 
-  = link_to 'マイページ更新へ', edit_user_path, class: 'btn btn-primary'
+  = link_to edit_user_path, class: 'btn btn-outline-primary'
+    = icon 'fa', 'wrench', 'マイページ更新へ'
 - else
   current_user
   table.table.table
@@ -45,9 +53,10 @@
         th
           = "ユーザーID"
         td
+          .copy-btn
             p#js-copyid = @user.player_uid 
             = button_tag 'UIDのコピー', type: 'button', id: 'js-copybtn'
-            <p id="js-copyalert" class="copy_alert">コピーできました！</p>
+            /# p#js-copyalert. copy_alert, "コピーできました！"
       tr
         th
           = "世界ランク"

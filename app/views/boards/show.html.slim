@@ -1,9 +1,13 @@
-h1 募集の詳細
+.board_show
+  h1 募集の詳細
 
 .nav.justify-content-end
   = link_to '一覧', boards_path, class: 'nav-link'
-table.table.table-hover
+table.table.table-hover.shadow-sm
   tbody
+    tr
+      th= '投稿者'
+      td= @board.user.name
     tr
       th= '募集番号'
       Board.human_attribute_name(:id)
@@ -24,9 +28,6 @@ table.table.table-hover
       th= '更新日'
       Board.human_attribute_name(:update_at)
       td= @board.updated_at.strftime("%Y-%m-%d %H:%M")
-  
-= link_to '編集', edit_board_path, class: 'btn btn-primary mr-3'
-/ = button_to '削除', @board, method::delete, data: { confirm: "募集「#{@board.title}」を削除します。よろしいですか？"}, class: "btn btn-danger"
 
 == render 'comments/form', { board: @board, comment: @comment }
 

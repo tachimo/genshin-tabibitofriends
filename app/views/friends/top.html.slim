@@ -6,23 +6,24 @@
   .input-group.mb-3
     = f.search_field :name_or_introduction_cont, class: "form-control", placeholder: "ユーザー名"
   .input-group-append
-    = f.submit "検索", class: "btn btn-primary"
+    = f.submit "検索", class: "btn btn-outline-primary"
 
 
 ul.users
   - @users.each do |user|
     .user-board
       .card style=("width: 18rem;")
-        .card-body
+        .card-body.shadow
           .column.flex-direction:row
             /# = gravatar_for user, size: 50
             .username-button
-              = link_to user.name, user, class: "btn btn-primary"
+              = link_to user.name, user, class: "btn btn-outline-primary"
             br
               = user.name
-            /# br
-              /# = user.player_uid
             br
               = user.world_rank
-            = link_to "ユーザーページへ", user, class: "btn btn-primary"
+            br
+              = user.introduction
+            = link_to user, class: "btn btn-outline-primary"
+              = icon 'fa', 'user', 'ユーザーページ'
     = paginate @users, theme: 'bootstrap-5'

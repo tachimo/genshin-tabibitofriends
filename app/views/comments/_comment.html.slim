@@ -1,6 +1,6 @@
 | <tr id="comment-
 = comment.id
-| "> 
+| " class="shadow"> 
 td[style="width: 60px"]
   = image_tag 'sample.jpg', class: 'rounded-circle', size: '50x50'
 td
@@ -21,3 +21,6 @@ td
       li.list-inline-item
         = button_to comment_path(comment), method: :delete, data: { confirm: "コメントを削除します。よろしいですか？"}, class: "btn btn-danger"
           = icon 'fa', 'trash'
+  
+- else
+  td.action

@@ -22,6 +22,10 @@ header#header.header-top.shadow-sm {
   flex-direction: row;
 }
 
+.btn-outline-primary:hover {
+  transform: scale(.7, .7);
+}
+
 .link-button-help {
   text-align: right;
   padding: 10px;
@@ -159,6 +163,10 @@ ul {
   }
 }
 
+.js-copyid {
+  text-align: left;
+}
+
 tr {
   background-color: gainsboro;
 }
@@ -227,4 +235,9 @@ ul.boards {
 
 .board-deletebutton {
   display: inline-block;
+}
+
+/* board_show */
+.board_show {
+  text-align: center;
 }

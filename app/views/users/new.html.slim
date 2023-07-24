@@ -11,4 +11,5 @@ h1 新規登録
     = f.label :password, 'パスワード'
     = f.password_field :password, class: 'form-control'
   .newuser-button
-    = f.submit '登録する', class: 'btn btn-primary'
+    = button_tag type: 'submit', class: 'btn btn-primary' do
+      = icon 'fa', 'pen', '登録'
